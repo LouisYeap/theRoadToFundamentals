@@ -5,7 +5,7 @@ import (
 	"fmt"
 )
 
-// 结构体定义
+// Result 结构体定义
 type Result struct {
 	ID                int     `json:"id"`
 	Station           int     `json:"station"`
@@ -64,9 +64,21 @@ func main() {
 		return
 	}
 
-	fmt.Println(response.Result)
+	//fmt.Println(response.Result)
 
-	for i, i2 := range response.Result {
-		fmt.Println(i, i2.DT)
-	}
+	//在 Go 语言的 fmt 包中，Printf 函数用于格式化并输出字符串到标准输出（通常是控制台）。格式化字符串中的 %+v 是一个动词（verb），用于指示如何格式化并打印其后的参数。
+	//
+	//对于 %+v，它的特殊之处在于：
+	//
+	//%v：这是 fmt 包中用于打印值的通用动词。对于结构体（如你的 Result 类型），它会打印出结构体的字段值，但不会打印字段名。
+	//+：这是一个修饰符，当与 %v 结合使用时（即 %+v），它会告诉 fmt 包在打印结构体时，不仅打印字段值，还要打印字段名。
+	//因此，当你使用 fmt.Printf("%+v\n", i2) 来打印 Result 类型的变量 i2 时，你会看到如下输出（基于你提供的 Result 结构体定义和 JSON 数据）：
+	//for _, i2 := range response.Result {
+	//	fmt.Printf("%+v\n", i2)
+	//}
+	//fmt.Print("%T", response)
+	jsonStr, _ := json.Marshal(response)
+	println(string(jsonStr))
+
+	//	json的转换都是byte数组进行转换
 }
