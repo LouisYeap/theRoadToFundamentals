@@ -57,4 +57,7 @@ func main() {
 	fmt.Println(c)
 
 	//1-9开始
+
+	//	go切片的底层原理，坑比较多
+
 }
