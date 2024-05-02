@@ -20,4 +20,5 @@ func main() {
 	}{
 		Name: "John",
 	}
+	fmt.Println(a)
 }
